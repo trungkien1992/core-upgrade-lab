@@ -1,0 +1,22 @@
+test_clean_package_passes_and_changed_report_fails (test_lab.EvidenceControls.test_clean_package_passes_and_changed_report_fails) ... ok
+test_manifest_cannot_traverse_outside_evidence (test_lab.EvidenceControls.test_manifest_cannot_traverse_outside_evidence) ... ok
+test_missing_required_evidence_rejected (test_lab.EvidenceControls.test_missing_required_evidence_rejected) ... ok
+test_parent_symlink_cannot_escape_package (test_lab.EvidenceControls.test_parent_symlink_cannot_escape_package) ... ok
+test_recomputed_manifest_does_not_hide_inconsistent_counts (test_lab.EvidenceControls.test_recomputed_manifest_does_not_hide_inconsistent_counts) ... ok
+test_symlinked_evidence_rejected (test_lab.EvidenceControls.test_symlinked_evidence_rejected) ... ok
+test_cached_executable_is_checked_and_never_overwritten (test_lab.InstallationControls.test_cached_executable_is_checked_and_never_overwritten) ... ok
+test_malformed_stop_response_does_not_skip_process_reaping (test_lab.LifecycleControls.test_malformed_stop_response_does_not_skip_process_reaping) ... ok
+test_startup_exception_closes_all_registered_nodes (test_lab.LifecycleControls.test_startup_exception_closes_all_registered_nodes) ... ok
+test_assertion_failure_and_runtime_error_are_distinguished (test_lab.MeasurementControls.test_assertion_failure_and_runtime_error_are_distinguished) ... ok
+test_identical_binary_selection_is_not_valid_evidence (test_lab.MeasurementControls.test_identical_binary_selection_is_not_valid_evidence) ... ok
+test_exact_satoshi_and_whole_amounts (test_lab.MoneyControls.test_exact_satoshi_and_whole_amounts) ... ok
+test_fractional_satoshis_are_not_rounded (test_lab.MoneyControls.test_fractional_satoshis_are_not_rounded) ... ok
+test_nonfinite_amounts_rejected (test_lab.MoneyControls.test_nonfinite_amounts_rejected) ... ok
+test_truncation_and_bad_magic_do_not_become_version_zero (test_lab.PSBTControls.test_truncation_and_bad_magic_do_not_become_version_zero) ... ok
+test_version_two_from_explicit_global_field (test_lab.PSBTControls.test_version_two_from_explicit_global_field) ... ok
+test_version_zero_when_global_version_omitted (test_lab.PSBTControls.test_version_zero_when_global_version_omitted) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.055s
+
+OK

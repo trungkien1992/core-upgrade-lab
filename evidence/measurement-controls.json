@@ -1,0 +1,51 @@
+{
+  "controls": [
+    {
+      "name": "unaltered_evidence_positive_control",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "passed": true,
+      "detail": "Copied genuine integration evidence verifies.",
+      "output": "{\n  \"files_verified\": 5,\n  \"counts\": {\n    \"pass\": 30,\n    \"fail\": 0,\n    \"error\": 0\n  },\n  \"successful\": true,\n  \"limit\": \"Hashes check package integrity, not independent execution or signer identity\"\n}\n"
+    },
+    {
+      "name": "altered_evidence_negative_control",
+      "expected_exit": 2,
+      "observed_exit": 2,
+      "passed": true,
+      "detail": "An altered report is rejected by the real verifier.",
+      "output": "ValueError: Evidence hash mismatch: report.md\n"
+    },
+    {
+      "name": "identical_binary_selection_negative_control",
+      "expected_exit": 2,
+      "observed_exit": 2,
+      "passed": true,
+      "detail": "Duplicate version selection is rejected before node execution.",
+      "output": "ValueError: Baseline and candidate binaries are identical\n"
+    },
+    {
+      "name": "valid_signature_positive_control",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "passed": true,
+      "detail": "Pinned public key verifies the genuine signed manifest.",
+      "output": "gpgv: Signature made Tue Jul  7 05:11:32 2026 CST\ngpgv:                using RSA key 152812300785C96444D3334D17565732E08E5E41\ngpgv:                issuer \"me@achow101.com\"\ngpgv: Good signature from \"Ava Chow <me@achow101.com>\"\ngpgv:                 aka \"Ava Chow <github@achow101.com>\"\ngpgv:                 aka \"Ava Chow <achow101@pm.me>\"\n"
+    },
+    {
+      "name": "altered_signed_manifest_negative_control",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "passed": true,
+      "detail": "A modified signed checksum is rejected.",
+      "output": "gpgv: Signature made Tue Jul  7 05:11:32 2026 CST\ngpgv:                using RSA key 152812300785C96444D3334D17565732E08E5E41\ngpgv:                issuer \"me@achow101.com\"\ngpgv: BAD signature from \"Ava Chow <me@achow101.com>\"\n"
+    },
+    {
+      "name": "assertion_vs_runtime_error",
+      "passed": true,
+      "detail": "Unit tests exercise PASS, FAIL and ERROR classification without substituting Bitcoin results."
+    }
+  ],
+  "all_passed": true,
+  "unit_tests_exit": 0
+}

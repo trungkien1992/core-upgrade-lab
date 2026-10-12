@@ -1,0 +1,210 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Core Upgrade Lab evidence</title><style>
+body{font:16px system-ui,sans-serif;color:#19283a;background:#f4f6fa;margin:0}
+main{max-width:1100px;margin:40px auto;padding:28px;background:white;border-radius:16px}
+h1{font-size:38px;margin:12px 0}.eyebrow{letter-spacing:.08em;color:#59718b}
+.stats{display:flex;gap:16px;margin:24px 0;flex-wrap:wrap}.stats div{padding:16px;background:#eef3f8;border-radius:10px;min-width:120px}
+.stats strong{font-size:30px;display:block}table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{text-align:left;padding:11px;border-bottom:1px solid #dfe5ed}th{background:#edf2f7}
+.pass{color:#11664d}.fail,.error{color:#a02232}p{line-height:1.6;max-width:900px}
+details{padding:13px;border-bottom:1px solid #dfe5ed}summary{cursor:pointer}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6fa;padding:14px}
+small{color:#52657a}</style><main>
+<div class="eyebrow">BITCOIN CORE RELEASE COMPATIBILITY</div><h1>Core Upgrade Lab</h1>
+<p>Real local test evidence for <strong>Bitcoin Core daemon version v31.1.0 bitcoind</strong>
+to <strong>Bitcoin Core daemon version v32.0.0rc3 bitcoind</strong>.</p>
+<div class="stats"><div><strong>30</strong>passed</div>
+<div><strong>0</strong>failed</div><div><strong>0</strong>errors</div>
+<div><strong>0</strong>network peers required</div></div>
+<p>This report covers ordinary regtest node and wallet workflows, documented RPC changes,
+PSBT interchange, watch-only export, and preservation of wallet state through an upgrade.</p>
+<p><small>Run 2026-10-12T12:35:39.554204+00:00. Linux x86_64 validation.
+The results do not establish general security, consensus correctness, downstream application
+coverage, or maintainer endorsement.</small></p>
+<table><thead><tr><th>Phase</th><th>Check</th><th>Result</th></tr></thead><tbody><tr><td>baseline</td><td>network isolation</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>descriptor wallet and mature funds</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>documented invalid height control</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>ordinary payment accounting</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>mempool rpc size contract</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>payment confirmation</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>default psbt fund sign finalize confirm</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>legacy psbt format available</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>watch only and signing controls</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>rpc discovery contract</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>balance rpc contract</td><td class='pass'>PASS</td></tr><tr><td>baseline</td><td>capture upgrade reference state</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>network isolation</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>descriptor wallet and mature funds</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>documented invalid height control</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>ordinary payment accounting</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>mempool rpc size contract</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>payment confirmation</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>default psbt fund sign finalize confirm</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>legacy psbt format available</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>watch only and signing controls</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>rpc discovery contract</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>balance rpc contract</td><td class='pass'>PASS</td></tr><tr><td>candidate</td><td>capture upgrade reference state</td><td class='pass'>PASS</td></tr><tr><td>cross_version</td><td>candidate legacy psbt decodes on baseline</td><td class='pass'>PASS</td></tr><tr><td>cross_version</td><td>candidate default psbt baseline observation</td><td class='pass'>PASS</td></tr><tr><td>cross_version</td><td>candidate watch only export restores on baseline</td><td class='pass'>PASS</td></tr><tr><td>upgrade</td><td>network isolation after upgrade</td><td class='pass'>PASS</td></tr><tr><td>upgrade</td><td>wallet and chain state preserved</td><td class='pass'>PASS</td></tr><tr><td>upgrade</td><td>wallet spends after upgrade</td><td class='pass'>PASS</td></tr></tbody></table>
+<h2>Inspect the observations</h2><details><summary>baseline / network isolation</summary><pre>{
+  &quot;chain&quot;: &quot;regtest&quot;,
+  &quot;connections&quot;: 0,
+  &quot;networkactive&quot;: false,
+  &quot;rpc_host&quot;: &quot;127.0.0.1&quot;
+}</pre></details><details><summary>baseline / descriptor wallet and mature funds</summary><pre>{
+  &quot;height&quot;: 101,
+  &quot;mature_balance_sats&quot;: 5000000000,
+  &quot;descriptor_wallet&quot;: true
+}</pre></details><details><summary>baseline / documented invalid height control</summary><pre>{
+  &quot;expected_error&quot;: -8,
+  &quot;observed_error&quot;: -8
+}</pre></details><details><summary>baseline / ordinary payment accounting</summary><pre>{
+  &quot;input_sats&quot;: 5000000000,
+  &quot;output_sats&quot;: 4999999718,
+  &quot;fee_sats&quot;: 282,
+  &quot;recipient_sats&quot;: 100000000,
+  &quot;vsize&quot;: 141,
+  &quot;requested_fee_rate_sat_vb&quot;: 2
+}</pre></details><details><summary>baseline / mempool rpc size contract</summary><pre>{
+  &quot;mempool_fields&quot;: {
+    &quot;vsize&quot;: 141
+  },
+  &quot;raw_transaction_fields&quot;: {
+    &quot;vsize&quot;: 141
+  }
+}</pre></details><details><summary>baseline / payment confirmation</summary><pre>{
+  &quot;confirmations&quot;: 1,
+  &quot;recipient_balance_sats&quot;: 100000000
+}</pre></details><details><summary>baseline / default psbt fund sign finalize confirm</summary><pre>{
+  &quot;default_psbt_version&quot;: 0,
+  &quot;signed_complete&quot;: true,
+  &quot;finalized&quot;: true,
+  &quot;accepted_locally&quot;: true,
+  &quot;confirmed&quot;: true,
+  &quot;funding_fee_sats&quot;: 282
+}</pre></details><details><summary>baseline / legacy psbt format available</summary><pre>{
+  &quot;psbt_version&quot;: 0,
+  &quot;selection&quot;: &quot;default&quot;
+}</pre></details><details><summary>baseline / watch only and signing controls</summary><pre>{
+  &quot;public_descriptors_imported&quot;: 8,
+  &quot;private_keys_enabled&quot;: false,
+  &quot;observer_complete&quot;: false,
+  &quot;signing_control_complete&quot;: true
+}</pre></details><details><summary>baseline / rpc discovery contract</summary><pre>{
+  &quot;available&quot;: false,
+  &quot;expected_for_pinned_release&quot;: false
+}</pre></details><details><summary>baseline / balance rpc contract</summary><pre>{
+  &quot;fields&quot;: [
+    &quot;immature&quot;,
+    &quot;trusted&quot;,
+    &quot;untrusted_pending&quot;
+  ],
+  &quot;nonmempool_present&quot;: false,
+  &quot;nonmempool_sats&quot;: null
+}</pre></details><details><summary>baseline / capture upgrade reference state</summary><pre>{
+  &quot;balance_sats&quot;: 14849999436,
+  &quot;txcount&quot;: 105,
+  &quot;private_keys_enabled&quot;: true,
+  &quot;descriptors&quot;: [
+    &quot;pkh([72b2fb1f/44h/1h/0h]tpubDD2HKaG3CiDpZS7VUUsxLBBToVwrbcjzifuTmECBvz9MT1RWi8Uk9PLr6Cy8JkKasSkKfWfJkHhQQM22FWgkSH97ZskaKEd3sBsDwzEqx7x/0/*)#wsm9mr92&quot;,
+    &quot;pkh([72b2fb1f/44h/1h/0h]tpubDD2HKaG3CiDpZS7VUUsxLBBToVwrbcjzifuTmECBvz9MT1RWi8Uk9PLr6Cy8JkKasSkKfWfJkHhQQM22FWgkSH97ZskaKEd3sBsDwzEqx7x/1/*)#ly7yxk4j&quot;,
+    &quot;sh(wpkh([72b2fb1f/49h/1h/0h]tpubDCGHNcqV4BVTJMYHkT1BYjT9wsdC2GxedXtV2ybFTrgaJWrJcBJm5Bc6AEdASGbZcUUk9H1GkwmfifSreFeYZbKyMm8rT3JbJCUkScW4ad8/0/*))#v7krft2p&quot;,
+    &quot;sh(wpkh([72b2fb1f/49h/1h/0h]tpubDCGHNcqV4BVTJMYHkT1BYjT9wsdC2GxedXtV2ybFTrgaJWrJcBJm5Bc6AEdASGbZcUUk9H1GkwmfifSreFeYZbKyMm8rT3JbJCUkScW4ad8/1/*))#elc435l7&quot;,
+    &quot;tr([72b2fb1f/86h/1h/0h]tpubDDBjv6ixZQs2SPkjLvaMAFKsNnzpWJfcag6ZSJVbFV1i89FEwgmo3ztw1deNvg3dj1Lz9kkZTgXKPJPQsSjUrDwPQjdim2WzZ3iqKRPrbh6/0/*)#fyunqfe9&quot;,
+    &quot;tr([72b2fb1f/86h/1h/0h]tpubDDBjv6ixZQs2SPkjLvaMAFKsNnzpWJfcag6ZSJVbFV1i89FEwgmo3ztw1deNvg3dj1Lz9kkZTgXKPJPQsSjUrDwPQjdim2WzZ3iqKRPrbh6/1/*)#csejaufa&quot;,
+    &quot;wpkh([72b2fb1f/84h/1h/0h]tpubDC47X5SuoSQXGcditRnsXNsqvkpZDtoBvdcnEinzebyAePeB3EphTzJX7Y4PDEvrCE3DgfbmYamsdFT5LT26D6URc2MAhCC6So5aXkr3EKX/0/*)#f7mlph30&quot;,
+    &quot;wpkh([72b2fb1f/84h/1h/0h]tpubDC47X5SuoSQXGcditRnsXNsqvkpZDtoBvdcnEinzebyAePeB3EphTzJX7Y4PDEvrCE3DgfbmYamsdFT5LT26D6URc2MAhCC6So5aXkr3EKX/1/*)#c277uzph&quot;
+  ],
+  &quot;chain_height&quot;: 103,
+  &quot;bestblockhash&quot;: &quot;41366db1f99d7f30c32f2366c30283e9e0700b54a42a06966a0774fb94bcb91e&quot;
+}</pre></details><details><summary>candidate / network isolation</summary><pre>{
+  &quot;chain&quot;: &quot;regtest&quot;,
+  &quot;connections&quot;: 0,
+  &quot;networkactive&quot;: false,
+  &quot;rpc_host&quot;: &quot;127.0.0.1&quot;
+}</pre></details><details><summary>candidate / descriptor wallet and mature funds</summary><pre>{
+  &quot;height&quot;: 101,
+  &quot;mature_balance_sats&quot;: 5000000000,
+  &quot;descriptor_wallet&quot;: true
+}</pre></details><details><summary>candidate / documented invalid height control</summary><pre>{
+  &quot;expected_error&quot;: -8,
+  &quot;observed_error&quot;: -8
+}</pre></details><details><summary>candidate / ordinary payment accounting</summary><pre>{
+  &quot;input_sats&quot;: 5000000000,
+  &quot;output_sats&quot;: 4999999718,
+  &quot;fee_sats&quot;: 282,
+  &quot;recipient_sats&quot;: 100000000,
+  &quot;vsize&quot;: 141,
+  &quot;requested_fee_rate_sat_vb&quot;: 2
+}</pre></details><details><summary>candidate / mempool rpc size contract</summary><pre>{
+  &quot;mempool_fields&quot;: {
+    &quot;vsize&quot;: 141,
+    &quot;vsize_adjusted&quot;: 141,
+    &quot;vsize_bip141&quot;: 141
+  },
+  &quot;raw_transaction_fields&quot;: {
+    &quot;vsize&quot;: 141,
+    &quot;vsize_adjusted&quot;: 141
+  }
+}</pre></details><details><summary>candidate / payment confirmation</summary><pre>{
+  &quot;confirmations&quot;: 1,
+  &quot;recipient_balance_sats&quot;: 100000000
+}</pre></details><details><summary>candidate / default psbt fund sign finalize confirm</summary><pre>{
+  &quot;default_psbt_version&quot;: 2,
+  &quot;signed_complete&quot;: true,
+  &quot;finalized&quot;: true,
+  &quot;accepted_locally&quot;: true,
+  &quot;confirmed&quot;: true,
+  &quot;funding_fee_sats&quot;: 282
+}</pre></details><details><summary>candidate / legacy psbt format available</summary><pre>{
+  &quot;psbt_version&quot;: 0,
+  &quot;selection&quot;: &quot;explicit&quot;
+}</pre></details><details><summary>candidate / watch only and signing controls</summary><pre>{
+  &quot;public_descriptors_imported&quot;: 8,
+  &quot;private_keys_enabled&quot;: false,
+  &quot;observer_complete&quot;: false,
+  &quot;signing_control_complete&quot;: true
+}</pre></details><details><summary>candidate / rpc discovery contract</summary><pre>{
+  &quot;available&quot;: true,
+  &quot;openrpc&quot;: &quot;1.4.1&quot;,
+  &quot;methods&quot;: 157,
+  &quot;discovery_methods_equal&quot;: true
+}</pre></details><details><summary>candidate / balance rpc contract</summary><pre>{
+  &quot;fields&quot;: [
+    &quot;immature&quot;,
+    &quot;nonmempool&quot;,
+    &quot;trusted&quot;,
+    &quot;untrusted_pending&quot;
+  ],
+  &quot;nonmempool_present&quot;: true,
+  &quot;nonmempool_sats&quot;: 0
+}</pre></details><details><summary>candidate / capture upgrade reference state</summary><pre>{
+  &quot;balance_sats&quot;: 14849999436,
+  &quot;txcount&quot;: 105,
+  &quot;private_keys_enabled&quot;: true,
+  &quot;descriptors&quot;: [
+    &quot;pkh([64863400/44h/1h/0h]tpubDDMjzuU3TxP19JxWVxuckM8F122KvgsViGRwh5RVhstr8q22bdnPziS1Nuy5jFMzwdvAxJpX6dmWn96AULegmTZkrw7UXn8suV2qFBUWXFV/0/*)#vu8qag3z&quot;,
+    &quot;pkh([64863400/44h/1h/0h]tpubDDMjzuU3TxP19JxWVxuckM8F122KvgsViGRwh5RVhstr8q22bdnPziS1Nuy5jFMzwdvAxJpX6dmWn96AULegmTZkrw7UXn8suV2qFBUWXFV/1/*)#agzpqap6&quot;,
+    &quot;sh(wpkh([64863400/49h/1h/0h]tpubDCaSe54KMF1DtuHLMAKzXpuFbDHE7CiAU6vuTVu5Be1cGc65ckt6N53RDU77dMzofu6zCmuf5ZS6ciAfffuanenR2NDwxova4d6jVmeMY5U/0/*))#ue54vn06&quot;,
+    &quot;sh(wpkh([64863400/49h/1h/0h]tpubDCaSe54KMF1DtuHLMAKzXpuFbDHE7CiAU6vuTVu5Be1cGc65ckt6N53RDU77dMzofu6zCmuf5ZS6ciAfffuanenR2NDwxova4d6jVmeMY5U/1/*))#fc6r5v69&quot;,
+    &quot;tr([64863400/86h/1h/0h]tpubDDhYLXvdozha7oNL9mHsVYMyE3pCw4y5xcKqnEjsMDYKamrtfN5u2EACjBd1nU1nbMDgYrv8WgPDLB9MEPhCm8qP1ZQmpggJkAxjXCRL2JD/0/*)#4rxc5qp2&quot;,
+    &quot;tr([64863400/86h/1h/0h]tpubDDhYLXvdozha7oNL9mHsVYMyE3pCw4y5xcKqnEjsMDYKamrtfN5u2EACjBd1nU1nbMDgYrv8WgPDLB9MEPhCm8qP1ZQmpggJkAxjXCRL2JD/1/*)#yhref43j&quot;,
+    &quot;wpkh([64863400/84h/1h/0h]tpubDCrx6UkNFBeTrHZmQBrLpCXY99i8oAcSRuPJvKoCXtvn4bqfx48CdBRuSwDvAVd4f8sEaHY3zdQFbSt2xit1czs7fR6noKQHpVEUU1TALLu/0/*)#7nstx47f&quot;,
+    &quot;wpkh([64863400/84h/1h/0h]tpubDCrx6UkNFBeTrHZmQBrLpCXY99i8oAcSRuPJvKoCXtvn4bqfx48CdBRuSwDvAVd4f8sEaHY3zdQFbSt2xit1czs7fR6noKQHpVEUU1TALLu/1/*)#0842mqw3&quot;
+  ],
+  &quot;chain_height&quot;: 103,
+  &quot;bestblockhash&quot;: &quot;4554ec3f69665e7920ec1d675dc61e0a5c6dd05187286a460289bfd24264b1ee&quot;
+}</pre></details><details><summary>cross_version / candidate legacy psbt decodes on baseline</summary><pre>{
+  &quot;candidate_explicit_version&quot;: 0,
+  &quot;baseline_decodes&quot;: true
+}</pre></details><details><summary>cross_version / candidate default psbt baseline observation</summary><pre>{
+  &quot;baseline_decodes_candidate_default&quot;: false,
+  &quot;rpc_error&quot;: -22,
+  &quot;rpc_message&quot;: &quot;TX decode failed Unsupported version number: iostream error&quot;,
+  &quot;candidate_default_psbt_version&quot;: 2,
+  &quot;interpretation&quot;: &quot;Observed compatibility result, not a vulnerability verdict&quot;
+}</pre></details><details><summary>cross_version / candidate watch only export restores on baseline</summary><pre>{
+  &quot;source_transaction_count&quot;: 105,
+  &quot;restored_transaction_count&quot;: 105,
+  &quot;restored_private_keys_enabled&quot;: false,
+  &quot;public_descriptors_equal&quot;: true
+}</pre></details><details><summary>upgrade / network isolation after upgrade</summary><pre>{
+  &quot;chain&quot;: &quot;regtest&quot;,
+  &quot;connections&quot;: 0,
+  &quot;networkactive&quot;: false,
+  &quot;rpc_host&quot;: &quot;127.0.0.1&quot;
+}</pre></details><details><summary>upgrade / wallet and chain state preserved</summary><pre>{
+  &quot;unchanged_fields&quot;: [
+    &quot;balance_sats&quot;,
+    &quot;txcount&quot;,
+    &quot;private_keys_enabled&quot;,
+    &quot;descriptors&quot;,
+    &quot;chain_height&quot;,
+    &quot;bestblockhash&quot;
+  ],
+  &quot;balance_sats&quot;: 14849999436,
+  &quot;txcount&quot;: 105,
+  &quot;chain_height&quot;: 103
+}</pre></details><details><summary>upgrade / wallet spends after upgrade</summary><pre>{
+  &quot;signs_after_upgrade&quot;: true,
+  &quot;local_payment_confirmed&quot;: true
+}</pre></details>
+<p><small>Use the supplied verifier to check file integrity. Full reproduction needs the pinned
+binaries and source. Runtime wallet files and RPC cookies are not included.</small></p></main></html>

@@ -1,0 +1,32 @@
+[
+  {
+    "archive": "bitcoin-31.1-x86_64-linux-gnu.tar.gz",
+    "binary_matches_signed_archive": true,
+    "binary_sha256": "986e63b3c8770f08d0059820ad3dd085d1ab9e1bea23946c243f858a06888a08",
+    "guix_source_commit": "cdac1b3a0bf6ee3d5e688a6075e6168e275d9a4a",
+    "manifest_sha256": "5058979aba4ad8240561550f801f34e145031f1cad4224c984dfa8521a8f80e0",
+    "release": "31.1",
+    "sha256": "b80d9c3e04da78fb6f0569685673418cf686fadba9042d926d13fb87ff503f9e",
+    "signing_fingerprint": "152812300785C96444D3334D17565732E08E5E41",
+    "trust_note": "Key is pinned from the official guix.sigs repository; fingerprint identity was not independently verified out of band.",
+    "url": "https://bitcoincore.org/bin/bitcoin-core-31.1/bitcoin-31.1-x86_64-linux-gnu.tar.gz",
+    "valid_signature": [
+      "[GNUPG:] VALIDSIG 152812300785C96444D3334D17565732E08E5E41 2026-07-06 1783372292 0 4 0 1 8 00 152812300785C96444D3334D17565732E08E5E41"
+    ]
+  },
+  {
+    "archive": "bitcoin-32.0rc3-x86_64-linux-gnu.tar.gz",
+    "binary_matches_signed_archive": true,
+    "binary_sha256": "9dcc3f2c61efe49fa40c3979aff5c2ebdbc1159c7948bdf0c96ba21829624bf1",
+    "guix_source_commit": "cdac1b3a0bf6ee3d5e688a6075e6168e275d9a4a",
+    "manifest_sha256": "37704250302b86108d88547a377c7b858620de56315a7fff0d9267deb822069d",
+    "release": "32.0rc3",
+    "sha256": "87c92cd7e1bc41e6fcc9d7739a4a314ed1f8dde67e68985892338b1be797bdac",
+    "signing_fingerprint": "152812300785C96444D3334D17565732E08E5E41",
+    "trust_note": "Key is pinned from the official guix.sigs repository; fingerprint identity was not independently verified out of band.",
+    "url": "https://bitcoincore.org/bin/bitcoin-core-32.0/test.rc3/bitcoin-32.0rc3-x86_64-linux-gnu.tar.gz",
+    "valid_signature": [
+      "[GNUPG:] VALIDSIG 152812300785C96444D3334D17565732E08E5E41 2026-10-01 1790887344 0 4 0 1 8 00 152812300785C96444D3334D17565732E08E5E41"
+    ]
+  }
+]

@@ -1,0 +1,425 @@
+{
+  "binaries": {
+    "baseline": {
+      "name": "bitcoind",
+      "sha256": "986e63b3c8770f08d0059820ad3dd085d1ab9e1bea23946c243f858a06888a08",
+      "version": "Bitcoin Core daemon version v31.1.0 bitcoind"
+    },
+    "candidate": {
+      "name": "bitcoind",
+      "sha256": "9dcc3f2c61efe49fa40c3979aff5c2ebdbc1159c7948bdf0c96ba21829624bf1",
+      "version": "Bitcoin Core daemon version v32.0.0rc3 bitcoind"
+    }
+  },
+  "checks": [
+    {
+      "elapsed_seconds": 0.0062,
+      "name": "network_isolation",
+      "observed": {
+        "chain": "regtest",
+        "connections": 0,
+        "networkactive": false,
+        "rpc_host": "127.0.0.1"
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 2.1627,
+      "name": "descriptor_wallet_and_mature_funds",
+      "observed": {
+        "descriptor_wallet": true,
+        "height": 101,
+        "mature_balance_sats": 5000000000
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "name": "documented_invalid_height_control",
+      "observed": {
+        "expected_error": -8,
+        "observed_error": -8
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0351,
+      "name": "ordinary_payment_accounting",
+      "observed": {
+        "fee_sats": 282,
+        "input_sats": 5000000000,
+        "output_sats": 4999999718,
+        "recipient_sats": 100000000,
+        "requested_fee_rate_sat_vb": 2,
+        "vsize": 141
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0043,
+      "name": "mempool_rpc_size_contract",
+      "observed": {
+        "mempool_fields": {
+          "vsize": 141
+        },
+        "raw_transaction_fields": {
+          "vsize": 141
+        }
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0237,
+      "name": "payment_confirmation",
+      "observed": {
+        "confirmations": 1,
+        "recipient_balance_sats": 100000000
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0359,
+      "name": "default_psbt_fund_sign_finalize_confirm",
+      "observed": {
+        "accepted_locally": true,
+        "confirmed": true,
+        "default_psbt_version": 0,
+        "finalized": true,
+        "funding_fee_sats": 282,
+        "signed_complete": true
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0012,
+      "name": "legacy_psbt_format_available",
+      "observed": {
+        "psbt_version": 0,
+        "selection": "default"
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 1.2147,
+      "name": "watch_only_and_signing_controls",
+      "observed": {
+        "observer_complete": false,
+        "private_keys_enabled": false,
+        "public_descriptors_imported": 8,
+        "signing_control_complete": true
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0105,
+      "name": "rpc_discovery_contract",
+      "observed": {
+        "available": false,
+        "expected_for_pinned_release": false
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0055,
+      "name": "balance_rpc_contract",
+      "observed": {
+        "fields": [
+          "immature",
+          "trusted",
+          "untrusted_pending"
+        ],
+        "nonmempool_present": false,
+        "nonmempool_sats": null
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.009,
+      "name": "capture_upgrade_reference_state",
+      "observed": {
+        "balance_sats": 14849999436,
+        "bestblockhash": "41366db1f99d7f30c32f2366c30283e9e0700b54a42a06966a0774fb94bcb91e",
+        "chain_height": 103,
+        "descriptors": [
+          "pkh([72b2fb1f/44h/1h/0h]tpubDD2HKaG3CiDpZS7VUUsxLBBToVwrbcjzifuTmECBvz9MT1RWi8Uk9PLr6Cy8JkKasSkKfWfJkHhQQM22FWgkSH97ZskaKEd3sBsDwzEqx7x/0/*)#wsm9mr92",
+          "pkh([72b2fb1f/44h/1h/0h]tpubDD2HKaG3CiDpZS7VUUsxLBBToVwrbcjzifuTmECBvz9MT1RWi8Uk9PLr6Cy8JkKasSkKfWfJkHhQQM22FWgkSH97ZskaKEd3sBsDwzEqx7x/1/*)#ly7yxk4j",
+          "sh(wpkh([72b2fb1f/49h/1h/0h]tpubDCGHNcqV4BVTJMYHkT1BYjT9wsdC2GxedXtV2ybFTrgaJWrJcBJm5Bc6AEdASGbZcUUk9H1GkwmfifSreFeYZbKyMm8rT3JbJCUkScW4ad8/0/*))#v7krft2p",
+          "sh(wpkh([72b2fb1f/49h/1h/0h]tpubDCGHNcqV4BVTJMYHkT1BYjT9wsdC2GxedXtV2ybFTrgaJWrJcBJm5Bc6AEdASGbZcUUk9H1GkwmfifSreFeYZbKyMm8rT3JbJCUkScW4ad8/1/*))#elc435l7",
+          "tr([72b2fb1f/86h/1h/0h]tpubDDBjv6ixZQs2SPkjLvaMAFKsNnzpWJfcag6ZSJVbFV1i89FEwgmo3ztw1deNvg3dj1Lz9kkZTgXKPJPQsSjUrDwPQjdim2WzZ3iqKRPrbh6/0/*)#fyunqfe9",
+          "tr([72b2fb1f/86h/1h/0h]tpubDDBjv6ixZQs2SPkjLvaMAFKsNnzpWJfcag6ZSJVbFV1i89FEwgmo3ztw1deNvg3dj1Lz9kkZTgXKPJPQsSjUrDwPQjdim2WzZ3iqKRPrbh6/1/*)#csejaufa",
+          "wpkh([72b2fb1f/84h/1h/0h]tpubDC47X5SuoSQXGcditRnsXNsqvkpZDtoBvdcnEinzebyAePeB3EphTzJX7Y4PDEvrCE3DgfbmYamsdFT5LT26D6URc2MAhCC6So5aXkr3EKX/0/*)#f7mlph30",
+          "wpkh([72b2fb1f/84h/1h/0h]tpubDC47X5SuoSQXGcditRnsXNsqvkpZDtoBvdcnEinzebyAePeB3EphTzJX7Y4PDEvrCE3DgfbmYamsdFT5LT26D6URc2MAhCC6So5aXkr3EKX/1/*)#c277uzph"
+        ],
+        "private_keys_enabled": true,
+        "txcount": 105
+      },
+      "phase": "baseline",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0176,
+      "name": "network_isolation",
+      "observed": {
+        "chain": "regtest",
+        "connections": 0,
+        "networkactive": false,
+        "rpc_host": "127.0.0.1"
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 2.7003,
+      "name": "descriptor_wallet_and_mature_funds",
+      "observed": {
+        "descriptor_wallet": true,
+        "height": 101,
+        "mature_balance_sats": 5000000000
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0017,
+      "name": "documented_invalid_height_control",
+      "observed": {
+        "expected_error": -8,
+        "observed_error": -8
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0317,
+      "name": "ordinary_payment_accounting",
+      "observed": {
+        "fee_sats": 282,
+        "input_sats": 5000000000,
+        "output_sats": 4999999718,
+        "recipient_sats": 100000000,
+        "requested_fee_rate_sat_vb": 2,
+        "vsize": 141
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0052,
+      "name": "mempool_rpc_size_contract",
+      "observed": {
+        "mempool_fields": {
+          "vsize": 141,
+          "vsize_adjusted": 141,
+          "vsize_bip141": 141
+        },
+        "raw_transaction_fields": {
+          "vsize": 141,
+          "vsize_adjusted": 141
+        }
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0121,
+      "name": "payment_confirmation",
+      "observed": {
+        "confirmations": 1,
+        "recipient_balance_sats": 100000000
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0279,
+      "name": "default_psbt_fund_sign_finalize_confirm",
+      "observed": {
+        "accepted_locally": true,
+        "confirmed": true,
+        "default_psbt_version": 2,
+        "finalized": true,
+        "funding_fee_sats": 282,
+        "signed_complete": true
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "name": "legacy_psbt_format_available",
+      "observed": {
+        "psbt_version": 0,
+        "selection": "explicit"
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 1.3039,
+      "name": "watch_only_and_signing_controls",
+      "observed": {
+        "observer_complete": false,
+        "private_keys_enabled": false,
+        "public_descriptors_imported": 8,
+        "signing_control_complete": true
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.1221,
+      "name": "rpc_discovery_contract",
+      "observed": {
+        "available": true,
+        "discovery_methods_equal": true,
+        "methods": 157,
+        "openrpc": "1.4.1"
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.002,
+      "name": "balance_rpc_contract",
+      "observed": {
+        "fields": [
+          "immature",
+          "nonmempool",
+          "trusted",
+          "untrusted_pending"
+        ],
+        "nonmempool_present": true,
+        "nonmempool_sats": 0
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0101,
+      "name": "capture_upgrade_reference_state",
+      "observed": {
+        "balance_sats": 14849999436,
+        "bestblockhash": "4554ec3f69665e7920ec1d675dc61e0a5c6dd05187286a460289bfd24264b1ee",
+        "chain_height": 103,
+        "descriptors": [
+          "pkh([64863400/44h/1h/0h]tpubDDMjzuU3TxP19JxWVxuckM8F122KvgsViGRwh5RVhstr8q22bdnPziS1Nuy5jFMzwdvAxJpX6dmWn96AULegmTZkrw7UXn8suV2qFBUWXFV/0/*)#vu8qag3z",
+          "pkh([64863400/44h/1h/0h]tpubDDMjzuU3TxP19JxWVxuckM8F122KvgsViGRwh5RVhstr8q22bdnPziS1Nuy5jFMzwdvAxJpX6dmWn96AULegmTZkrw7UXn8suV2qFBUWXFV/1/*)#agzpqap6",
+          "sh(wpkh([64863400/49h/1h/0h]tpubDCaSe54KMF1DtuHLMAKzXpuFbDHE7CiAU6vuTVu5Be1cGc65ckt6N53RDU77dMzofu6zCmuf5ZS6ciAfffuanenR2NDwxova4d6jVmeMY5U/0/*))#ue54vn06",
+          "sh(wpkh([64863400/49h/1h/0h]tpubDCaSe54KMF1DtuHLMAKzXpuFbDHE7CiAU6vuTVu5Be1cGc65ckt6N53RDU77dMzofu6zCmuf5ZS6ciAfffuanenR2NDwxova4d6jVmeMY5U/1/*))#fc6r5v69",
+          "tr([64863400/86h/1h/0h]tpubDDhYLXvdozha7oNL9mHsVYMyE3pCw4y5xcKqnEjsMDYKamrtfN5u2EACjBd1nU1nbMDgYrv8WgPDLB9MEPhCm8qP1ZQmpggJkAxjXCRL2JD/0/*)#4rxc5qp2",
+          "tr([64863400/86h/1h/0h]tpubDDhYLXvdozha7oNL9mHsVYMyE3pCw4y5xcKqnEjsMDYKamrtfN5u2EACjBd1nU1nbMDgYrv8WgPDLB9MEPhCm8qP1ZQmpggJkAxjXCRL2JD/1/*)#yhref43j",
+          "wpkh([64863400/84h/1h/0h]tpubDCrx6UkNFBeTrHZmQBrLpCXY99i8oAcSRuPJvKoCXtvn4bqfx48CdBRuSwDvAVd4f8sEaHY3zdQFbSt2xit1czs7fR6noKQHpVEUU1TALLu/0/*)#7nstx47f",
+          "wpkh([64863400/84h/1h/0h]tpubDCrx6UkNFBeTrHZmQBrLpCXY99i8oAcSRuPJvKoCXtvn4bqfx48CdBRuSwDvAVd4f8sEaHY3zdQFbSt2xit1czs7fR6noKQHpVEUU1TALLu/1/*)#0842mqw3"
+        ],
+        "private_keys_enabled": true,
+        "txcount": 105
+      },
+      "phase": "candidate",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0069,
+      "name": "candidate_legacy_psbt_decodes_on_baseline",
+      "observed": {
+        "baseline_decodes": true,
+        "candidate_explicit_version": 0
+      },
+      "phase": "cross_version",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0014,
+      "name": "candidate_default_psbt_baseline_observation",
+      "observed": {
+        "baseline_decodes_candidate_default": false,
+        "candidate_default_psbt_version": 2,
+        "interpretation": "Observed compatibility result, not a vulnerability verdict",
+        "rpc_error": -22,
+        "rpc_message": "TX decode failed Unsupported version number: iostream error"
+      },
+      "phase": "cross_version",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 2.6152,
+      "name": "candidate_watch_only_export_restores_on_baseline",
+      "observed": {
+        "public_descriptors_equal": true,
+        "restored_private_keys_enabled": false,
+        "restored_transaction_count": 105,
+        "source_transaction_count": 105
+      },
+      "phase": "cross_version",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0092,
+      "name": "network_isolation_after_upgrade",
+      "observed": {
+        "chain": "regtest",
+        "connections": 0,
+        "networkactive": false,
+        "rpc_host": "127.0.0.1"
+      },
+      "phase": "upgrade",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 1.0782,
+      "name": "wallet_and_chain_state_preserved",
+      "observed": {
+        "balance_sats": 14849999436,
+        "chain_height": 103,
+        "txcount": 105,
+        "unchanged_fields": [
+          "balance_sats",
+          "txcount",
+          "private_keys_enabled",
+          "descriptors",
+          "chain_height",
+          "bestblockhash"
+        ]
+      },
+      "phase": "upgrade",
+      "status": "pass"
+    },
+    {
+      "elapsed_seconds": 0.0152,
+      "name": "wallet_spends_after_upgrade",
+      "observed": {
+        "local_payment_confirmed": true,
+        "signs_after_upgrade": true
+      },
+      "phase": "upgrade",
+      "status": "pass"
+    }
+  ],
+  "counts": {
+    "error": 0,
+    "fail": 0,
+    "pass": 30
+  },
+  "elapsed_seconds": 12.64,
+  "host": {
+    "machine": "x86_64",
+    "python": "3.12.14",
+    "system": "Linux"
+  },
+  "run_id": "2026-10-12T12:35:39.554204+00:00",
+  "runner_sha256": "0b3cf74b454ee812dbe856da3559b2c4fa47b0b0683d6720a3feeab0015db20b",
+  "schema": "core-upgrade-lab/evidence-v1",
+  "scope": "Owned local regtest fixtures; no peers, public network or real funds",
+  "successful": true,
+  "tool_version": "0.1.1"
+}
